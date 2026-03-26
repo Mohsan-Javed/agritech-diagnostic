@@ -30,11 +30,18 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # --- 3. LOAD MODEL ---
+import os
+
 @st.cache_resource
 def load_my_model():
-    return tf.keras.models.load_model('agritech_plant_disease_90.keras')
-
-model = load_my_model()
+    # 1. Get the directory where app.py is located
+    current_dir = os.path.dirname(__file__)
+    
+    # 2. Go UP one level to the root folder, then find the model
+    model_path = os.path.join(current_dir, '..', 'agritech_plant_disease_90.keras')
+    
+    # 3. Load it
+    return tf.keras.models.load_model(model_path)
 
 class_indices = {
     0: 'Pepper Bell: Bacterial Spot', 1: 'Pepper Bell: Healthy', 
