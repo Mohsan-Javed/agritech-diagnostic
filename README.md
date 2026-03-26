@@ -1,5 +1,8 @@
 # AgriTech: Deep Learning Plant Pathology Diagnostic System
 
+## Link to live demo
+https://agritech-diagnostic.streamlit.app/
+
 ## Project Overview
 AgriTech is an end-to-end computer vision solution designed to identify 15 unique classifications of plant diseases in Tomato, Potato, and Pepper crops. By leveraging transfer learning on the MobileNetV2 architecture, this system provides real-time diagnostic capabilities to assist in precision agriculture and crop management.
 
