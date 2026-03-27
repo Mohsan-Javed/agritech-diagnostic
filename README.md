@@ -43,12 +43,12 @@ The model is trained to recognize the following 14 specific states across three 
 
 To move beyond a baseline implementation, I focused on **Systems Engineering** principles to ensure the app is viable for real-world field use.
 
-### ⚡ Real-Time Latency Profiling
+### Real-Time Latency Profiling
 In agricultural settings, connectivity and hardware constraints are common. I implemented a **latency profiling layer** that measures the end-to-end inference time for every diagnostic request. 
 * **The Goal:** Monitor model efficiency and ensure response times remain under the 500ms threshold for a seamless user experience.
 * **The Result:** Average inference speed on Hugging Face CPU-tier is consistently profiled between 150ms–300ms.
 
-### 🛡️ Defensive Programming & Reliability
+### Defensive Programming & Reliability
 * **Confidence Thresholding:** Implemented logic to flag "Uncertain" results if the model's confidence falls below 60%, preventing false positives in non-ideal lighting conditions.
 * **Resource Management:** Optimized the TensorFlow environment to use `tensorflow-cpu` to reduce container size and improve startup time by ~40%.
 
