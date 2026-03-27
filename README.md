@@ -1,27 +1,43 @@
-# AgriTech: Deep Learning Plant Pathology Diagnostic System
+# AgriTech: AI-Powered Plant Disease Diagnostic System
 
-## Link to live demo
-(https://huggingface.co/spaces/Mohsan-Javed/agritech-diagnostic)
+ **Live Demo:** (https://huggingface.co/spaces/Mohsan-Javed/agritech-diagnostic)
 
-## Project Overview
-AgriTech is an end-to-end computer vision solution designed to identify 15 unique classifications of plant diseases in Tomato, Potato, and Pepper crops. By leveraging transfer learning on the MobileNetV2 architecture, this system provides real-time diagnostic capabilities to assist in precision agriculture and crop management.
+AgriTech is an intelligent agricultural tool that utilizes Deep Learning to identify diseases in vegetable crops instantly. By analyzing leaf images, this system helps farmers and gardeners detect pathogens early, ensuring better crop yields and reducing the unnecessary use of chemical treatments.
 
-## Technical Architecture
-* **Base Model**: MobileNetV2 (Pre-trained on ImageNet)
-* **Optimization**: Adam Optimizer with a custom learning rate schedule.
-* **Regularization**: Dropout layers and Label Smoothing (0.1) to prevent overfitting.
-* **Inference Technique**: Test Time Augmentation (TTA) to increase prediction stability by averaging 5 augmented perspectives per specimen.
+## Features
+* **Real-time Diagnostic:** Upload a photo and get an instant disease classification.
+* **Specialized Model:** Specifically tuned for high-impact vegetable crops (Tomato, Potato, Pepper).
+* **High Reliability:** Uses a Convolutional Neural Network (CNN) with 90%+ accuracy.
+* **Responsive UI:** Clean, modern interface built with Streamlit.
 
+## 🛠️ Tech Stack
+* **Language:** Python 3.11
+* **Deep Learning Framework:** TensorFlow / Keras
+* **Web Interface:** Streamlit
+* **Deployment:** Hugging Face Spaces
 
+## Supported Classes (14 Categories)
+The model is trained to recognize the following 14 specific states across three major crop types:
 
-[Image of a convolutional neural network architecture for image classification]
+### Bell Pepper
+* Bacterial Spot
+* Healthy
 
+### Potato
+* Early Blight
+* Late Blight
+* Healthy
 
-## Key Features
-* **High-Precision Classification**: Achieved 94% validation accuracy on the PlantVillage dataset.
-* **Robust Preprocessing**: Automated image normalization and RGB channel verification.
-* **Professional Interface**: Streamlit-based dashboard for seamless specimen upload and analysis.
-* **Confidence Scoring**: Integrated logic to flag low-confidence results for human review.
+### Tomato
+* Bacterial Spot
+* Early Blight
+* Late Blight
+* Leaf Mold
+* Septoria Leaf Spot
+* Spider Mites (Two-spotted)
+* Target Spot
+* Yellow Leaf Curl Virus
+* Healthy
 
 ## Installation and Deployment
 1. Clone the repository:
