@@ -1,56 +1,39 @@
-# AgriTech: AI-Powered Plant Disease Diagnostic System
+AgriTech: AI-Powered Plant Disease Diagnostic System
+AgriTech is a specialized Computer Vision tool designed to identify 14 distinct health states in high-impact vegetable crops (Tomato, Potato, and Bell Pepper). By leveraging Transfer Learning and MobileNetV2, this system provides near-instant diagnostics to help farmers mitigate crop loss and reduce chemical overuse.
 
- **Live Demo:** (https://huggingface.co/spaces/Mohsan-Javed/agritech-diagnostic)
+Key Technical Highlights
+Transfer Learning Architecture: Utilized a pre-trained MobileNetV2 backbone for its optimal balance between parameter efficiency and high accuracy (90%+).
 
-AgriTech is an intelligent agricultural tool that utilizes Deep Learning to identify diseases in vegetable crops instantly. By analyzing leaf images, this system helps farmers and gardeners detect pathogens early, ensuring better crop yields and reducing the unnecessary use of chemical treatments.
+Real-Time Latency Profiling: Developed a custom profiling layer to monitor end-to-end inference. Achieved a consistent response time of 150ms–300ms on CPU-tier infrastructure.
 
-## Features
-* **Real-time Diagnostic:** Upload a photo and get an instant disease classification.
-* **Specialized Model:** Specifically tuned for high-impact vegetable crops (Tomato, Potato, Pepper).
-* **High Reliability:** Uses a Convolutional Neural Network (CNN) with 90%+ accuracy.
-* **Responsive UI:** Clean, modern interface built with Streamlit.
+Defensive Prediction Logic: Integrated a 60% confidence threshold. If the model's Softmax output is low, the system flags the result as "Uncertain," preventing false positives caused by poor lighting or non-leaf images.
 
-## 🛠️ Tech Stack
-* **Language:** Python 3.11
-* **Deep Learning Framework:** TensorFlow / Keras
-* **Web Interface:** Streamlit
-* **Deployment:** Hugging Face Spaces
+Production-Ready Deployment: Optimized the environment using tensorflow-cpu to reduce container overhead by 40%, ensuring fast startup and stable performance on Hugging Face Spaces.
 
-## Supported Classes (14 Categories)
-The model is trained to recognize the following 14 specific states across three major crop types:
+Model Performance & Dataset
+The model was trained on the PlantVillage dataset, focusing on 14 specific categories:
 
-### Bell Pepper
-* Bacterial Spot
-* Healthy
+Bell Pepper: Bacterial Spot, Healthy.
 
-### Potato
-* Early Blight
-* Late Blight
-* Healthy
+Potato: Early Blight, Late Blight, Healthy.
 
-### Tomato
-* Bacterial Spot
-* Early Blight
-* Late Blight
-* Leaf Mold
-* Septoria Leaf Spot
-* Spider Mites (Two-spotted)
-* Target Spot
-* Yellow Leaf Curl Virus
-* Healthy
+Tomato: Bacterial Spot, Early/Late Blight, Leaf Mold, Septoria Spot, Spider Mites, Target Spot, Yellow Leaf Curl, and Healthy.
 
-  ## ⚙️ Technical Optimizations & Performance
+Tech Stack
+Engine: TensorFlow / Keras (MobileNetV2)
 
-To move beyond a baseline implementation, I focused on **Systems Engineering** principles to ensure the app is viable for real-world field use.
+Interface: Streamlit
 
-### Real-Time Latency Profiling
-In agricultural settings, connectivity and hardware constraints are common. I implemented a **latency profiling layer** that measures the end-to-end inference time for every diagnostic request. 
-* **The Goal:** Monitor model efficiency and ensure response times remain under the 500ms threshold for a seamless user experience.
-* **The Result:** Average inference speed on Hugging Face CPU-tier is consistently profiled between 150ms–300ms.
+Environment: Python 3.11, tensorflow-cpu
 
-### Defensive Programming & Reliability
-* **Confidence Thresholding:** Implemented logic to flag "Uncertain" results if the model's confidence falls below 60%, preventing false positives in non-ideal lighting conditions.
-* **Resource Management:** Optimized the TensorFlow environment to use `tensorflow-cpu` to reduce container size and improve startup time by ~40%.
+Hosting: Hugging Face Spaces (Docker-based)
+
+Engineering & Optimization (The "Deep Dive")
+1. Why MobileNetV2?
+Unlike heavy architectures (VGG/ResNet), MobileNetV2 uses depthwise separable convolutions. This makes the model lightweight enough to eventually run on-device (Edge AI) without losing the feature-extraction power needed for subtle fungal patterns.
+
+2. Inference Speed vs. Resource Constraints
+To simulate real-world field use, the app includes a Latency Tracker. By profiling every request, I identified that image resizing was a bottleneck and optimized the preprocessing pipeline to ensure the "Wait Time" for a farmer is virtually zero.
 
 ## Installation and Deployment
 1. Clone the repository:
