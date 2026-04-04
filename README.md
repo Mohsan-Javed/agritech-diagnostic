@@ -3,6 +3,8 @@
 AgriTech is a specialized Computer Vision tool designed to identify 14 distinct health states in high-impact vegetable crops (Tomato, Potato, and Bell Pepper). By leveraging **Transfer Learning** and **MobileNetV2**, this system provides near-instant diagnostics to help farmers mitigate crop loss and reduce chemical overuse.
 
 ---
+# Live Demo
+---
 
 ## Key Technical Highlights
 
