@@ -4,6 +4,8 @@ AgriTech is a specialized Computer Vision tool designed to identify 14 distinct 
 
 ---
 # Live Demo
+Click the link below to see the live demo of this project:
+https://huggingface.co/spaces/Mohsan-Javed/agritech-diagnostic
 ---
 
 ## Key Technical Highlights
